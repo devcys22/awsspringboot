@@ -5,11 +5,8 @@ import com.example.awsspringboot.config.auth.dto.SessionUser;
 import com.example.awsspringboot.service.posts.PostsService;
 import com.example.awsspringboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
-import org.h2.engine.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -43,11 +40,5 @@ public class IndexController {
         model.addAttribute("post", dto);
 
         return "posts-update";
-    }
-
-    @DeleteMapping("/api/v1/posts/{id}")
-    public Long delete(@PathVariable Long id){
-        postsService.delete(id);
-        return id;
     }
 }
